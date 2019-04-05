@@ -4,26 +4,39 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 function linkedListGenerator() {
-  let linkedList = {
-
+  let linkedListExample = {
+    value: 'Ready Player One',
+    next: {
+      value: '1982',
+      next: {
+        value: 'Neuromancer',
+        next: {
+          value: 'Snow Crash',
+          next: null
+        }
+      }
+    }
   }
+  
   let getHead = function () {
-    return linkedList.getHead();
+    return {
+      value: 'Ready Player One',
+    }
   };
   let getTail = function () {
-    return linkedList.getTail();
+    return linkedListExample.getTail();
   }
   let add = function (x) {
-    return linkedList.add(x);
+    return linkedListExample.add(x);
   }
   let remove = function (x) {
-    return linkedList.remove(x);
+    return linkedListExample.remove(x);
   }
   let get = function (x) {
-    return linkedList.get(x);
+    return linkedListExample.get(x);
   }
   let insert = function (x,y){
-    return linkedList.insert(x,y);
+    return linkedListExample,ple.insert(x,y);
   }
   let linkedListMethods = {
     getHead: getHead,
