@@ -5,7 +5,7 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 function linkedListGenerator() {
-  
+
   let head = null;
   let tail = null;
 
@@ -18,16 +18,27 @@ function linkedListGenerator() {
   let add = function (x) {
     let newNode = {};
     newNode.value = x;
-    newNode.next = tail;
-    tail = newNode;
-    if (!head) head = newNode;
+    newNode.next = null;
+
+    if (head === null) {
+      head = newNode;
+      tail = newNode;
+    } else {
+      tail.next = newNode;
+      tail = newNode;
+    }
     return newNode;
   }
   let remove = function (x) {
     return linkedListExample.remove(x);
   }
   let get = function (x) {
-    return linkedListExample.get(x);
+    let currentNode = head;
+    for (let i = 0; i < x; i++) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+    return currentNode.value;
   }
   let insert = function (x, y) {
     return linkedListExample.insert(x, y);
