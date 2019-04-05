@@ -30,8 +30,27 @@ function linkedListGenerator() {
     return newNode;
   }
   let remove = function (x) {
-    return linkedListExample.remove(x);
+    if (x === 0) {
+      head = head.next;
+      return head;
+    }
+
+    if (get(x) === false) {
+      return false;
+    }
+    
+    if (!get(x + 1)) {
+      tail = get(x-1);
+    }
+
+    let previous = get(x-1);
+    let current = get(x);
+    previous.next = current.next;
+
+    return previous;
   }
+
+  
   let get = function (x) {
     let current = getHead();
     let count = 0;
