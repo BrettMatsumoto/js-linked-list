@@ -33,12 +33,19 @@ function linkedListGenerator() {
     return linkedListExample.remove(x);
   }
   let get = function (x) {
-    let currentNode = head;
-    for (let i = 0; i < x; i++) {
-      currentNode = currentNode.next;
-      counter++;
+    let current = getHead();
+    let count = 0;
+    if (x === 0) {
+      return current
     }
-    return currentNode.value;
+    while (count < x) {
+      current = current.next;
+      count++
+      if (current === null) {
+        return false;
+      }
+    }
+    return current;
   }
   let insert = function (x, y) {
     return linkedListExample.insert(x, y);
