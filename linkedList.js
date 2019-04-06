@@ -4,7 +4,6 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 function linkedListGenerator() {
-
   let head = null;
   let tail = null;
 
@@ -18,7 +17,6 @@ function linkedListGenerator() {
     let newNode = {};
     newNode.value = x;
     newNode.next = null;
-
     if (head === null) {
       head = newNode;
       tail = newNode;
@@ -33,30 +31,24 @@ function linkedListGenerator() {
       head = head.next;
       return head;
     }
-
     if (get(x) === false) {
       return false;
     }
-
     if (!get(x + 1)) {
       tail = get(x - 1);
     }
-
     let previous = get(x - 1);
     let current = get(x);
     previous.next = current.next;
-
     return previous;
   }
-
-
   let get = function (x) {
     let current = getHead();
     let count = 0;
     if (x === 0) {
       return current
     }
-    if (x < 0){
+    if (x < 0) {
       return false;
     }
     while (count < x) {
@@ -72,7 +64,7 @@ function linkedListGenerator() {
     let newNode = {};
     newNode.value = x;
     newNode.next = null;
-    if (x == undefined) { //if no value is passed in
+    if (x == undefined) {
       return null;
     }
     if (y === 0) { //if looking for head
@@ -80,18 +72,17 @@ function linkedListGenerator() {
       head = newNode;
       return head;
     }
-    console.log('test',y);
-    if (get(y) === false) { //if index doesn't exist
+    if (get(y) === false) {
       return false;
     }
-    if (!getHead()) { //if no head
+    if (!getHead()) {
       head = newNode;
       tail = newNode;
       return head;
     }
-    if (get(y - 1)) { //if previous index exists
-      newNode.next = get(y);  //set newNodes next to the index'd object
-      get(y - 1).next = newNode; //set previous nodes next to newNode
+    if (get(y - 1)) {
+      newNode.next = get(y);
+      get(y - 1).next = newNode;
       return newNode;
     }
   }
