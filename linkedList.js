@@ -1,4 +1,3 @@
-
 /**
  * @name  linkedListGenerator
  * @description  Main Module
@@ -38,28 +37,31 @@ function linkedListGenerator() {
     if (get(x) === false) {
       return false;
     }
-    
+
     if (!get(x + 1)) {
-      tail = get(x-1);
+      tail = get(x - 1);
     }
 
-    let previous = get(x-1);
+    let previous = get(x - 1);
     let current = get(x);
     previous.next = current.next;
 
     return previous;
   }
 
-  
+
   let get = function (x) {
     let current = getHead();
     let count = 0;
     if (x === 0) {
       return current
     }
+    if (x < 0){
+      return false;
+    }
     while (count < x) {
       current = current.next;
-      count++
+      count++;
       if (current === null) {
         return false;
       }
@@ -67,7 +69,31 @@ function linkedListGenerator() {
     return current;
   }
   let insert = function (x, y) {
-    return linkedListExample.insert(x, y);
+    let newNode = {};
+    newNode.value = x;
+    newNode.next = null;
+    if (x == undefined) { //if no value is passed in
+      return null;
+    }
+    if (y === 0) { //if looking for head
+      newNode.next = head;
+      head = newNode;
+      return head;
+    }
+    console.log('test',y);
+    if (get(y) === false) { //if index doesn't exist
+      return false;
+    }
+    if (!getHead()) { //if no head
+      head = newNode;
+      tail = newNode;
+      return head;
+    }
+    if (get(y - 1)) { //if previous index exists
+      newNode.next = get(y);  //set newNodes next to the index'd object
+      get(y - 1).next = newNode; //set previous nodes next to newNode
+      return newNode;
+    }
   }
   let linkedListMethods = {
     getHead: getHead,
