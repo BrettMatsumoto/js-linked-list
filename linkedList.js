@@ -36,6 +36,8 @@ function linkedListGenerator() {
     if (x === 0) {
       head = head.next;
       return head;
+    } if (head === null) {
+      return null;
     }
 
     if (get(x) === false) {
@@ -66,12 +68,10 @@ function linkedListGenerator() {
     }
 
     if (x < 0) {
-
       return false;
     }
 
     while (count < x) {
-
       current = current.next;
       count++;
 
